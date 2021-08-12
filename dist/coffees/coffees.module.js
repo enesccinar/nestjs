@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CoffeesModule = exports.CoffeeBrandsFactory = void 0;
+exports.CoffeesModule = void 0;
 const common_1 = require("@nestjs/common");
 const coffees_controller_1 = require("./coffees.controller");
 const coffees_service_1 = require("./coffees.service");
@@ -15,15 +15,7 @@ const coffee_entity_1 = require("./entities/coffee.entity");
 const flavor_entity_1 = require("./entities/flavor.entity");
 const event_entity_1 = require("../events/entities/event.entity");
 const coffees_constants_1 = require("./coffees.constants");
-let CoffeeBrandsFactory = class CoffeeBrandsFactory {
-    create() {
-        return ['buddy brew', 'nescafe'];
-    }
-};
-CoffeeBrandsFactory = __decorate([
-    common_1.Injectable()
-], CoffeeBrandsFactory);
-exports.CoffeeBrandsFactory = CoffeeBrandsFactory;
+const typeorm_2 = require("typeorm");
 let CoffeesModule = class CoffeesModule {
 };
 CoffeesModule = __decorate([
@@ -32,11 +24,14 @@ CoffeesModule = __decorate([
         controllers: [coffees_controller_1.CoffeesController],
         providers: [
             coffees_service_1.CoffeesService,
-            CoffeeBrandsFactory,
             {
                 provide: coffees_constants_1.COFFEE_BRANDS,
-                useFactory: (brandsFactory) => brandsFactory.create(),
-                inject: [CoffeeBrandsFactory]
+                useFactory: async (connection) => {
+                    const coffeeBrands = await Promise.resolve(['buddy brew', 'nescafe']);
+                    console.log('[!] Async factory');
+                    return coffeeBrands;
+                },
+                inject: [typeorm_2.Connection],
             }
         ],
         exports: [coffees_service_1.CoffeesService],
