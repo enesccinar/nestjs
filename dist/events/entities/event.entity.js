@@ -22,6 +22,7 @@ __decorate([
     __metadata("design:type", String)
 ], Event.prototype, "type", void 0);
 __decorate([
+    typeorm_1.Index(),
     typeorm_1.Column(),
     __metadata("design:type", String)
 ], Event.prototype, "name", void 0);
@@ -30,6 +31,7 @@ __decorate([
     __metadata("design:type", Object)
 ], Event.prototype, "payload", void 0);
 Event = __decorate([
+    typeorm_1.Index(['name', 'type']),
     typeorm_1.Entity()
 ], Event);
 exports.Event = Event;
