@@ -12,6 +12,7 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const coffees_module_1 = require("./coffees/coffees.module");
 const typeorm_1 = require("@nestjs/typeorm");
+const coffee_rating_module_1 = require("./coffee-rating/coffee-rating.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -28,6 +29,7 @@ AppModule = __decorate([
                 autoLoadEntities: true,
                 synchronize: true,
             }),
+            coffee_rating_module_1.CoffeeRatingModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

@@ -20,7 +20,8 @@ CoffeesModule = __decorate([
     common_1.Module({
         imports: [typeorm_1.TypeOrmModule.forFeature([coffee_entity_1.Coffee, flavor_entity_1.Flavor, event_entity_1.Event])],
         controllers: [coffees_controller_1.CoffeesController],
-        providers: [coffees_service_1.CoffeesService]
+        providers: [coffees_service_1.CoffeesService],
+        exports: [coffees_service_1.CoffeesService],
     })
 ], CoffeesModule);
 exports.CoffeesModule = CoffeesModule;
