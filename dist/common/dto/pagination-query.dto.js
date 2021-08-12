@@ -9,32 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Coffee = void 0;
-const typeorm_1 = require("typeorm");
-const flavor_entity_1 = require("./flavor.entity");
-let Coffee = class Coffee {
-};
+exports.PaginationQueryDto = void 0;
+const class_validator_1 = require("class-validator");
+class PaginationQueryDto {
+}
 __decorate([
-    typeorm_1.PrimaryGeneratedColumn(),
+    class_validator_1.IsOptional(),
+    class_validator_1.IsPositive(),
     __metadata("design:type", Number)
-], Coffee.prototype, "id", void 0);
+], PaginationQueryDto.prototype, "limit", void 0);
 __decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Coffee.prototype, "name", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Coffee.prototype, "brand", void 0);
-__decorate([
-    typeorm_1.JoinTable(),
-    typeorm_1.ManyToMany(type => flavor_entity_1.Flavor, flavor => flavor.coffees, {
-        cascade: true,
-    }),
-    __metadata("design:type", Array)
-], Coffee.prototype, "flavors", void 0);
-Coffee = __decorate([
-    typeorm_1.Entity()
-], Coffee);
-exports.Coffee = Coffee;
-//# sourceMappingURL=coffee.entity.js.map
+    class_validator_1.IsOptional(),
+    class_validator_1.IsPositive(),
+    __metadata("design:type", Number)
+], PaginationQueryDto.prototype, "offset", void 0);
+exports.PaginationQueryDto = PaginationQueryDto;
+//# sourceMappingURL=pagination-query.dto.js.map

@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CoffeesController = void 0;
 const common_1 = require("@nestjs/common");
+const pagination_query_dto_1 = require("../common/dto/pagination-query.dto");
 const coffees_service_1 = require("./coffees.service");
 const create_coffee_dto_1 = require("./dto/create-coffee.dto");
 const update_coffee_dto_1 = require("./dto/update-coffee.dto");
@@ -22,7 +23,7 @@ let CoffeesController = class CoffeesController {
         this.coffeesService = coffeesService;
     }
     findAll(paginationQuery) {
-        return this.coffeesService.findAll();
+        return this.coffeesService.findAll(paginationQuery);
     }
     findOne(id) {
         return this.coffeesService.findOne(id);
@@ -41,7 +42,7 @@ __decorate([
     common_1.Get(),
     __param(0, common_1.Query()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [pagination_query_dto_1.PaginationQueryDto]),
     __metadata("design:returntype", void 0)
 ], CoffeesController.prototype, "findAll", null);
 __decorate([
