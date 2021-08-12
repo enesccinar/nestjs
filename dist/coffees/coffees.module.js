@@ -15,6 +15,12 @@ const coffee_entity_1 = require("./entities/coffee.entity");
 const flavor_entity_1 = require("./entities/flavor.entity");
 const event_entity_1 = require("../events/entities/event.entity");
 const coffees_constants_1 = require("./coffees.constants");
+class ConfigService {
+}
+class DevelopmentConfigService {
+}
+class ProductionConfigService {
+}
 let CoffeesModule = class CoffeesModule {
 };
 CoffeesModule = __decorate([
@@ -23,6 +29,10 @@ CoffeesModule = __decorate([
         controllers: [coffees_controller_1.CoffeesController],
         providers: [
             coffees_service_1.CoffeesService,
+            {
+                provide: ConfigService,
+                useClass: process.env.NODE_ENV === 'development' ? DevelopmentConfigService : ProductionConfigService
+            },
             { provide: coffees_constants_1.COFFEE_BRANDS, useValue: ['buddy brew', 'nescafe'] }
         ],
         exports: [coffees_service_1.CoffeesService],
