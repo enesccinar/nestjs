@@ -1,0 +1,1 @@
+{"version":3,"file":"1628786719446-CoffeeRefactor.js","sourceRoot":"","sources":["../../src/migrations/1628786719446-CoffeeRefactor.ts"],"names":[],"mappings":";;;AAEA,MAAa,2BAA2B;IAE7B,KAAK,CAAC,EAAE,CAAC,WAAwB;QACpC,MAAM,WAAW,CAAC,KAAK,CACnB,sDAAsD,CACzD,CAAC;IACN,CAAC;IAEM,KAAK,CAAC,IAAI,CAAC,WAAwB;QACvC,MAAM,WAAW,CAAC,KAAK,CAClB,sDAAsD,CACzD,CAAC;IACN,CAAC;CAEJ;AAdD,kEAcC"}

@@ -23,6 +23,10 @@ __decorate([
     __metadata("design:type", String)
 ], Coffee.prototype, "name", void 0);
 __decorate([
+    typeorm_1.Column({ nullable: true }),
+    __metadata("design:type", String)
+], Coffee.prototype, "description", void 0);
+__decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
 ], Coffee.prototype, "brand", void 0);
