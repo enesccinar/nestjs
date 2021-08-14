@@ -75,6 +75,13 @@ Nest is [MIT licensed](LICENSE).
 
 # Commands
 
+## Schema Validation
+
+```
+npm i @hapi/joi
+npm i --save-dev @types/hapi__joi
+```
+
 ## Config
 
 ```
