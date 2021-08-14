@@ -26,7 +26,7 @@ let CoffeesService = class CoffeesService {
         this.coffeeRepository = coffeeRepository;
         this.flavorRepository = flavorRepository;
         this.connection = connection;
-        console.log(coffeeBrands);
+        console.log('Coffees Service instantiated!');
     }
     findAll(paginationQuery) {
         const { limit, offset } = paginationQuery;
@@ -93,7 +93,7 @@ let CoffeesService = class CoffeesService {
     }
 };
 CoffeesService = __decorate([
-    common_1.Injectable(),
+    common_1.Injectable({ scope: common_1.Scope.REQUEST }),
     __param(0, typeorm_1.InjectRepository(coffee_entity_1.Coffee)),
     __param(1, typeorm_1.InjectRepository(flavor_entity_1.Flavor)),
     __param(3, common_1.Inject(coffees_constants_1.COFFEE_BRANDS)),

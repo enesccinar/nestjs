@@ -15,7 +15,6 @@ const coffee_entity_1 = require("./entities/coffee.entity");
 const flavor_entity_1 = require("./entities/flavor.entity");
 const event_entity_1 = require("../events/entities/event.entity");
 const coffees_constants_1 = require("./coffees.constants");
-const typeorm_2 = require("typeorm");
 let CoffeesModule = class CoffeesModule {
 };
 CoffeesModule = __decorate([
@@ -26,13 +25,9 @@ CoffeesModule = __decorate([
             coffees_service_1.CoffeesService,
             {
                 provide: coffees_constants_1.COFFEE_BRANDS,
-                useFactory: async (connection) => {
-                    const coffeeBrands = await Promise.resolve(['buddy brew', 'nescafe']);
-                    console.log('[!] Async factory');
-                    return coffeeBrands;
-                },
-                inject: [typeorm_2.Connection],
-            }
+                useFactory: () => ['buddy new', 'nescafe'],
+                scope: common_1.Scope.TRANSIENT,
+            },
         ],
         exports: [coffees_service_1.CoffeesService],
     })
