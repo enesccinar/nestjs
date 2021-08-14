@@ -28,7 +28,7 @@ let CoffeesService = class CoffeesService {
         this.flavorRepository = flavorRepository;
         this.connection = connection;
         this.configService = configService;
-        const databaseHost = this.configService.get('DATABASE_HOST', 'localhost');
+        const databaseHost = this.configService.get('database.host', 'localhost');
         console.log(databaseHost);
     }
     findAll(paginationQuery) {

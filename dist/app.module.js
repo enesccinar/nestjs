@@ -15,17 +15,14 @@ const typeorm_1 = require("@nestjs/typeorm");
 const coffee_rating_module_1 = require("./coffee-rating/coffee-rating.module");
 const database_module_1 = require("./database/database.module");
 const config_1 = require("@nestjs/config");
-const Joi = require("@hapi/joi");
+const app_config_1 = require("./config/app.config");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [
             config_1.ConfigModule.forRoot({
-                validationSchema: Joi.object({
-                    DATABASE_HOST: Joi.required(),
-                    DATABASE_PORT: Joi.number().default(5432),
-                })
+                load: [app_config_1.default]
             }),
             coffees_module_1.CoffeesModule,
             typeorm_1.TypeOrmModule.forRoot({

@@ -27,10 +27,7 @@ export class CoffeesService {
     
     // const databaseHost = this.configService.get<string>('DATABASE_HOST');
     // second arg provides a default value
-    const databaseHost = this.configService.get<string>(
-      'DATABASE_HOST', 
-      'localhost'
-    );
+    const databaseHost = this.configService.get('database.host', 'localhost');
     console.log(databaseHost);
   }
 
