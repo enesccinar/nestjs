@@ -1,3 +1,4 @@
+import { ConfigService } from '@nestjs/config';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
 import { Connection, Repository } from 'typeorm';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
@@ -8,7 +9,8 @@ export declare class CoffeesService {
     private readonly coffeeRepository;
     private readonly flavorRepository;
     private readonly connection;
-    constructor(coffeeRepository: Repository<Coffee>, flavorRepository: Repository<Flavor>, connection: Connection, coffeeBrands: string[]);
+    private readonly configService;
+    constructor(coffeeRepository: Repository<Coffee>, flavorRepository: Repository<Flavor>, connection: Connection, coffeeBrands: string[], configService: ConfigService);
     findAll(paginationQuery: PaginationQueryDto): Promise<Coffee[]>;
     findOne(id: string): Promise<Coffee>;
     create(createCoffeeDto: CreateCoffeeDto): Promise<Coffee>;
