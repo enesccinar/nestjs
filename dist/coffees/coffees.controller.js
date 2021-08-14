@@ -21,6 +21,7 @@ const update_coffee_dto_1 = require("./dto/update-coffee.dto");
 let CoffeesController = class CoffeesController {
     constructor(coffeesService) {
         this.coffeesService = coffeesService;
+        console.log('Coffees Controller created');
     }
     findAll(paginationQuery) {
         return this.coffeesService.findAll(paginationQuery);
