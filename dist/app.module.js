@@ -14,19 +14,21 @@ const coffees_module_1 = require("./coffees/coffees.module");
 const typeorm_1 = require("@nestjs/typeorm");
 const coffee_rating_module_1 = require("./coffee-rating/coffee-rating.module");
 const database_module_1 = require("./database/database.module");
+const config_1 = require("@nestjs/config");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [
+            config_1.ConfigModule.forRoot(),
             coffees_module_1.CoffeesModule,
             typeorm_1.TypeOrmModule.forRoot({
                 type: 'postgres',
-                host: 'localhost',
-                port: 5432,
-                username: 'postgres',
-                password: 'pass123',
-                database: 'postgres',
+                host: process.env.DATABASE_HOST,
+                port: +process.env.DATABASE_PORT,
+                username: process.env.DATABASE_USER,
+                password: process.env.DATABASE_PASSWORD,
+                database: process.env.DATABASE_NAME,
                 autoLoadEntities: true,
                 synchronize: true,
             }),

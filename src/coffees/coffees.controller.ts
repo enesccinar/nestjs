@@ -17,9 +17,7 @@ import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 
 @Controller('coffees')
 export class CoffeesController {
-  constructor(private readonly coffeesService: CoffeesService, 
-    @Inject(REQUEST) private readonly request: Request, // may impact app performance
-  ) { 
+  constructor(private readonly coffeesService: CoffeesService) { 
     console.log('Coffees Controller created');
   }
 

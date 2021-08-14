@@ -75,6 +75,12 @@ Nest is [MIT licensed](LICENSE).
 
 # Commands
 
+## Config
+
+```
+npm i @nestjs/config
+```
+
 ## Module
 
 ```
