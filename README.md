@@ -146,8 +146,16 @@ nest g guard common/guards/api-key
 nest g mo common
 ```
 
-## Pointcuts (Interceptors)
+## Interceptors
+
+### Pointcuts
 
 ```
 nest g interceptor common/interceptors/wrap-response
+```
+
+### Timeout
+
+```
+nest g interceptor common/interceptors/timeout
 ```

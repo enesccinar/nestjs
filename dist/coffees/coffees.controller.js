@@ -24,7 +24,8 @@ let CoffeesController = class CoffeesController {
         this.coffeesService = coffeesService;
         console.log('Coffees Controller created');
     }
-    findAll(paginationQuery) {
+    async findAll(paginationQuery) {
+        await new Promise(resolve => setTimeout(resolve, 5000));
         return this.coffeesService.findAll(paginationQuery);
     }
     findOne(id) {
@@ -46,7 +47,7 @@ __decorate([
     __param(0, common_1.Query()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [pagination_query_dto_1.PaginationQueryDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], CoffeesController.prototype, "findAll", null);
 __decorate([
     common_1.Get(':id'),
