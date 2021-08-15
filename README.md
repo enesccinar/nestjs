@@ -139,3 +139,9 @@ example: authentication, authorization
 ```
 nest g guard common/guards/api-key
 ```
+
+### Using metadata
+
+```
+nest g mo common
+```
