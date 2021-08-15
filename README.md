@@ -125,3 +125,9 @@ npx typeorm migration:generate -n SchemaSync
 - Controller
 - Method
 - Param (pipes only)
+
+### Exception Handling
+
+```
+nest g filter common/filters/http-exception
+```

@@ -63,7 +63,7 @@ __decorate([
 __decorate([
     common_1.Patch(':id'),
     __param(0, common_1.Param('id')),
-    __param(1, common_1.Body()),
+    __param(1, common_1.Body(common_1.ValidationPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_coffee_dto_1.UpdateCoffeeDto]),
     __metadata("design:returntype", void 0)
