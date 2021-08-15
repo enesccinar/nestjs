@@ -21,20 +21,22 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     common_1.Module({
         imports: [
+            typeorm_1.TypeOrmModule.forRootAsync({
+                useFactory: () => ({
+                    type: 'postgres',
+                    host: process.env.DATABASE_HOST,
+                    port: +process.env.DATABASE_PORT,
+                    username: process.env.DATABASE_USER,
+                    password: process.env.DATABASE_PASSWORD,
+                    database: process.env.DATABASE_NAME,
+                    autoLoadEntities: true,
+                    synchronize: true,
+                })
+            }),
             config_1.ConfigModule.forRoot({
                 load: [app_config_1.default]
             }),
             coffees_module_1.CoffeesModule,
-            typeorm_1.TypeOrmModule.forRoot({
-                type: 'postgres',
-                host: process.env.DATABASE_HOST,
-                port: +process.env.DATABASE_PORT,
-                username: process.env.DATABASE_USER,
-                password: process.env.DATABASE_PASSWORD,
-                database: process.env.DATABASE_NAME,
-                autoLoadEntities: true,
-                synchronize: true,
-            }),
             coffee_rating_module_1.CoffeeRatingModule,
             database_module_1.DatabaseModule,
         ],
