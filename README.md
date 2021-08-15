@@ -145,3 +145,9 @@ nest g guard common/guards/api-key
 ```
 nest g mo common
 ```
+
+## Pointcuts (Interceptors)
+
+```
+nest g interceptor common/interceptors/wrap-response
+```
