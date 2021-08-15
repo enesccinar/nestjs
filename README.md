@@ -115,3 +115,13 @@ npx typeorm migration:revert
 npm run build
 npx typeorm migration:generate -n SchemaSync
 ```
+
+
+# Building Blocks
+
+## Binding
+
+- Global
+- Controller
+- Method
+- Param (pipes only)
