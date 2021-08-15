@@ -126,8 +126,16 @@ npx typeorm migration:generate -n SchemaSync
 - Method
 - Param (pipes only)
 
-### Exception Handling
+## Filters
 
 ```
 nest g filter common/filters/http-exception
+```
+
+## Guards
+
+example: authentication, authorization
+
+```
+nest g guard common/guards/api-key
 ```
