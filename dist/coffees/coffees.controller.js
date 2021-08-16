@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CoffeesController = void 0;
 const common_1 = require("@nestjs/common");
+const protocol_decorator_1 = require("../common/decorators/protocol.decorator");
 const public_decorator_1 = require("../common/decorators/public.decorator");
 const pagination_query_dto_1 = require("../common/dto/pagination-query.dto");
 const parse_int_pipe_1 = require("../common/pipes/parse-int.pipe");
@@ -25,8 +26,8 @@ let CoffeesController = class CoffeesController {
         this.coffeesService = coffeesService;
         console.log('Coffees Controller created');
     }
-    async findAll(paginationQuery) {
-        await new Promise(resolve => setTimeout(resolve, 5000));
+    async findAll(protocol, paginationQuery) {
+        console.log(protocol);
         return this.coffeesService.findAll(paginationQuery);
     }
     findOne(id) {
@@ -46,9 +47,10 @@ let CoffeesController = class CoffeesController {
 __decorate([
     public_decorator_1.Public(),
     common_1.Get(),
-    __param(0, common_1.Query()),
+    __param(0, protocol_decorator_1.Protocol('https')),
+    __param(1, common_1.Query()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [pagination_query_dto_1.PaginationQueryDto]),
+    __metadata("design:paramtypes", [String, pagination_query_dto_1.PaginationQueryDto]),
     __metadata("design:returntype", Promise)
 ], CoffeesController.prototype, "findAll", null);
 __decorate([

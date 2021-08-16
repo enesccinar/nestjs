@@ -184,3 +184,5 @@ nest g pipe common/pipes/parse-int
 ```
 nest g middleware common/middleware/logging
 ```
+
+## Decorators
