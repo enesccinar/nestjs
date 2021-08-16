@@ -159,3 +159,12 @@ nest g interceptor common/interceptors/wrap-response
 ```
 nest g interceptor common/interceptors/timeout
 ```
+
+## Pipes
+
+- Transformation
+- Validation
+
+```
+nest g pipe common/pipes/parse-int
+```

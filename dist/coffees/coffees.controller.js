@@ -16,6 +16,7 @@ exports.CoffeesController = void 0;
 const common_1 = require("@nestjs/common");
 const public_decorator_1 = require("../common/decorators/public.decorator");
 const pagination_query_dto_1 = require("../common/dto/pagination-query.dto");
+const parse_int_pipe_1 = require("../common/pipes/parse-int.pipe");
 const coffees_service_1 = require("./coffees.service");
 const create_coffee_dto_1 = require("./dto/create-coffee.dto");
 const update_coffee_dto_1 = require("./dto/update-coffee.dto");
@@ -29,6 +30,7 @@ let CoffeesController = class CoffeesController {
         return this.coffeesService.findAll(paginationQuery);
     }
     findOne(id) {
+        console.log(id);
         return this.coffeesService.findOne(id);
     }
     create(createCoffeeDto) {
@@ -51,7 +53,7 @@ __decorate([
 ], CoffeesController.prototype, "findAll", null);
 __decorate([
     common_1.Get(':id'),
-    __param(0, common_1.Param('id')),
+    __param(0, common_1.Param('id', parse_int_pipe_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
