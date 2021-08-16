@@ -168,3 +168,19 @@ nest g interceptor common/interceptors/timeout
 ```
 nest g pipe common/pipes/parse-int
 ```
+
+## Middleware
+
+- executing code
+- making changes req res
+- ending req res cycle
+- calling next middleware func
+
+### Middleware Types
+
+1. function
+2. class
+
+```
+nest g middleware common/middleware/logging
+```
